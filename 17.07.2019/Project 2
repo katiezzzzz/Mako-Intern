@@ -1,0 +1,38 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+cols = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Ex-dividend', 'Split Ratio', 'Adj. Open', 'Adj. High', 'Adj. Low', 'Adj. Close', 'Adj. Volume']
+data = pd.read_csv('WIKI-AAPL.csv', sep=',', header=None, names=cols)
+data = data.drop(columns=['Ex-dividend', 'Split Ratio', 'Adj. Open', 'Adj. High', 'Adj. Low', 'Adj. Close', 'Adj. Volume'])
+data = data.drop([0])
+data = pd.DataFrame(data)
+Dates = data.loc[0:10,'Date']
+Close = data.loc[0:10,'Close']
+
+Dates2 = np.array([Dates])
+Dates2 = np.append(Dates2, np.array(['2018-03-28']))
+Dates2 = sorted(Dates2)
+
+x = np.linspace(0,1,len(Dates))
+Close2 = np.array(list(Close), dtype=float)
+fit = np.polyfit(x, Close2, 1, cov=True)
+params = fit[0]
+params_cov = fit[1]
+m = params[0]
+c = params[1]
+x2 = np.arange(0,(len(Dates)+1),1)
+
+y = m*x + c
+#y2 = m*x2 + c
+
+Dates = sorted(Dates)
+plt.plot(Dates,Close,linestyle='',marker='o')
+plt.plot(Dates,y,color='black')
+#plt.plot(Dates2,y2)
+plt.show()
+
+
+print(Close)
+print(y)
+print(y2)
