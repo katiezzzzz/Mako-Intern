@@ -2,10 +2,13 @@ from bs4 import BeautifulSoup
 import requests
 import os.path
 import pickle
-import urllib.request
 import warnings
 
-my_path = "C:/Users/kzeng/PycharmProjects/python_training/web_scrapping_new/cache/"
+my_path = "C:/Users/kzeng/PycharmProjects/python_training/web_scraping/cache/"
+
+if not os.path.exists(my_path):
+    warnings.warn("Invalid Path")
+    exit()
 
 class WebClass:
 
@@ -24,7 +27,6 @@ class WebClass:
             try:
                 requests.get(self.URL).raise_for_status()
                 soup = BeautifulSoup(requests.get(self.URL).text, 'html.parser')
-                print(urllib.request.urlopen(self.URL).getcode())
                 for script in soup(["script", "style"]):
                     script.decompose()
                 self.cache = soup.get_text().lower()
