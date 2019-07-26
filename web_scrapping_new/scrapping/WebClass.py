@@ -79,7 +79,7 @@ class WebClass:
             print(self.URL)
             for line in self.new_line:
                 print(line)
-                self.message.append("<b>" + line[0] + "</b>:" + line[1])
+                self.message.append("<br><b>" + line[0] + "</b>:" + line[1] + '<br>')
 
     def createMessage(self):
         if self.new_line:

@@ -1,5 +1,9 @@
 import smtplib
 from email.mime.text import MIMEText
+import warnings
+
+IP = '10.144.10.13'
+port = 25
 
 class SendEmail:
 
@@ -12,8 +16,11 @@ class SendEmail:
         msg['To'] = to
         msg['Subject'] = 'Dividend Alerts'
 
-        s = smtplib.SMTP('10.144.10.13', 25)
-        s.send_message(msg)
+        try:
+            s = smtplib.SMTP(IP, port)
+            s.send_message(msg)
+        except:
+            warnings.warn('Please update your IP address and port in send_mail.py')
 
 if __name__ == "__main__":
 
