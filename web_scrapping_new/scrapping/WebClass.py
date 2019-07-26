@@ -63,11 +63,11 @@ class WebClass:
                 self.new_line.remove(line)
         if self.new_line:
             self.new_line.reverse()
-            self.message = ["New updates at " + self.companypage + ':' + '\r\n' + self.URL + '\r\n']
+            self.message = ["New updates at " + self.companypage + ':' + '\r\n' + '<br>' + self.URL + '<br>']
             print(self.URL)
             for line in self.new_line:
                 print(line)
-                self.message.append(line + '\r\n')
+                self.message.append(line)
 
     def createMessage(self):
         if self.new_line:
