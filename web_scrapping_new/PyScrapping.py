@@ -15,7 +15,7 @@ from scrapping.send_mail import SendEmail
 from scrapping.Timer import RepeatEvery
 from scrapping.WebClass import WebClass
 
-Frequency = 300
+Frequency = 60
 # frequency is in seconds
 
 def update():
@@ -46,13 +46,12 @@ def update():
             else:
                 message = ''.join(message)
                 message = '\r\n' + message
-                #mail = SendEmail()
-                #mail.send('Katie.Zeng@mako.com,Jane.Jiang@mako.com',message)
+                mail = SendEmail()
+                mail.send('Katie.Zeng@mako.com,Jane.Jiang@mako.com',message)
     else:
         warnings.warn("Please upload the directory")
 
 if __name__ == "__main__":
-    # run timer
     thread = RepeatEvery(Frequency, update)
     print("starting")
     thread.start()
