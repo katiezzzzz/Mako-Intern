@@ -39,7 +39,8 @@ def update():
                     pass
                 else:
                     message.append(scrap.createMessage())
-                    message.append('\r\n')
+                    if message != []:
+                        message.append('<br>'+'\r\n'+'<br>')
             if message == []:
                 pass
             else:
