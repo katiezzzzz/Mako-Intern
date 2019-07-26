@@ -50,6 +50,7 @@ def update():
                 mail.send('Katie.Zeng@mako.com,Jane.Jiang@mako.com',message)
     else:
         warnings.warn("Please upload the directory")
+        exit()
 
 if __name__ == "__main__":
     thread = RepeatEvery(Frequency, update)
