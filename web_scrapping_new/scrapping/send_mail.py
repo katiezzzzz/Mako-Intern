@@ -20,7 +20,7 @@ class SendEmail:
             s = smtplib.SMTP(IP, port)
             s.send_message(msg)
         except:
-            warnings.warn('Please update your IP address and port in send_mail.py')
+            warnings.warn('Email cannot be sent. Please update your IP address and port in send_mail.py.')
 
 if __name__ == "__main__":
 
