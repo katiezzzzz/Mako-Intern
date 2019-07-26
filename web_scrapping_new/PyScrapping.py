@@ -46,8 +46,8 @@ def update():
             else:
                 message = ''.join(message)
                 message = '\r\n' + message
-                mail = SendEmail()
-                mail.send('Katie.Zeng@mako.com,Jane.Jiang@mako.com',message)
+                #mail = SendEmail()
+                #mail.send('Katie.Zeng@mako.com,Jane.Jiang@mako.com',message)
     else:
         warnings.warn("Please upload the directory")
 
