@@ -1,0 +1,10 @@
+configMongoHost=uk01dw708
+configMongoPort=27017
+mongoHost=uk01dw708
+mongoPort=27017
+redisHost=uk01dw708
+redisPort=6379
+ignoreServices=
+defaultHostIP=
+timezone=Europe/London
+pythonDir=python
